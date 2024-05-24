@@ -1,0 +1,2 @@
+
+export { DepartmentSearch } from './DepartmentSearch';

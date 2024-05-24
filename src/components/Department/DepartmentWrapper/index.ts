@@ -1,0 +1,2 @@
+
+export { DepartmentWrapper } from './DepartmentWrapper';

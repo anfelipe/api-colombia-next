@@ -1,0 +1,2 @@
+
+export { CarouselImage } from './CarouselImage';
