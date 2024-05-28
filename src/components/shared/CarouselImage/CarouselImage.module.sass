@@ -4,6 +4,9 @@
   margin-left: 0px !important
   margin-right: 0px !important
 
+  @media screen and ( max-width: $media-breakpoint-small )
+    height: 50vh
+
   & > img
   border-radius: 1rem
   box-shadow: 0 0 4rem rgba(255, 255, 255, 0.2)
@@ -18,6 +21,10 @@
     top: 85%
     width: 95%
     z-index: 100 
+
+    @media screen and ( max-width: $media-breakpoint-small )
+      // top: 80%
+      font-size: 1.2rem
 
     & > p
       float: right

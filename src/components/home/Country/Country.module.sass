@@ -33,6 +33,9 @@
       width: 50%
       z-index: 1
 
+      @media screen and ( max-width: $media-breakpoint-small )
+        max-width: 100% !important
+
       & > div
         border-radius: 7rem          
         width: 14rem
@@ -42,6 +45,7 @@
         justify-content: center    
         flex-direction: column
         background-color: #646461
+        margin-top: 1rem
 
         & > svg
           font-size: 5rem
@@ -54,7 +58,10 @@
       margin-top: 5rem !important            
       display: flex
       align-items: center
-      justify-content: center      
+      justify-content: center  
+
+      @media screen and ( max-width: $media-breakpoint-small )
+        max-width: 100% !important
 
       & > p
         font-size: 2rem
