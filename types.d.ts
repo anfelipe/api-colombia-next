@@ -46,3 +46,18 @@ type ImageType = {
   url: string,
   alt: string
 }
+
+enum ImageCategory {
+  DEPARTMENT  
+}
+
+type Authors = {
+  departments: ImageAuthor[]
+}
+
+type ImageAuthor = {
+  name: string,
+  page: string,
+  index: string,
+  map: string
+}

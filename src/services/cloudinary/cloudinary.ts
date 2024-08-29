@@ -1,13 +1,12 @@
 import { env } from "app/config/env";
 import { v2 as cloudinary } from "cloudinary";
-
+import authorImages from '../../../public/images/authors.json';
 
 cloudinary.config({
   cloud_name: env.CLOUDINARY_CLOUD_NAME,
   api_key: env.CLOUDINARY_API_KEY,
   api_secret: env.CLOUDINARY_API_SECRET   
 });
-
 
 function TransformToImageType(data:any) : ImageType {
   let name = data.folder.split('/')[2];
@@ -24,12 +23,28 @@ function capitalizeFirstLetter(str: string): string {
   return str.replace(/^\w/, (c) => c.toUpperCase());
 }
 
+function shuffle<T>(array: T[]): T[] {
+  const shuffledArray = [...array];
+  
+  shuffledArray.sort(() => Math.random() - 0.5);
+  
+  return shuffledArray;
+}
+
+function getImageAuthor(name: string, category:ImageCategory){
+  const authors = authorImages as Authors;
+
+  console.log(authors);
+  
+}
+
 export const getDepartmentImage = async (name: string) : Promise<ImageType> => {
   try {        
 
     const response = await cloudinary.api.resources({
       type: 'upload',
-      prefix: `colombia/departments/${name}/index/${name}`,
+      prefix: `colombia/departments/${name}/index/`,
+      max_results: 1,
       cache: 'force-cache',
       next: {
         tags: ['department']
@@ -81,7 +96,7 @@ export const getShuffleImages = async () : Promise<ImageType[]> => {
       return TransformToImageType(collection);
     });
 
-    return transformedImages;
+    return shuffle(transformedImages);
 
   } catch (error) {
     console.log("Error al obtener imágenes aleatorias");
@@ -111,7 +126,7 @@ export const getAllDepartments = async () : Promise<ImageType[]> => {
       return [] as ImageType[];
     }
 
-    const imagesList = response as ImageType[];
+    const imagesList = response.filter((image:any) => image.folder.split('/').length == 3) as ImageType[];
 
     const transformedImages = imagesList.map((collection: any) => {      
       return TransformToImageType(collection);

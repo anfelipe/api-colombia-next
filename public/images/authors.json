@@ -1,0 +1,34 @@
+{
+  "departments":[
+    {
+      "name": "amazonas",
+      "page": "Kate Che - Unsplash",
+      "index": "",
+      "map": ""
+    },
+    {
+      "name": "antioquia",
+      "page": "Robin Noguier - Unsplash",
+      "index": "Jack's Flight Club - Unsplash",
+      "map": ""
+    },
+    { 
+      "name": "arauca",
+      "page": "https://www.triviantes.com/departamento-arauca",
+      "index": "https://www.triviantes.com/departamento-arauca",
+      "map": ""
+    },
+    {
+      "name": "bogota",
+      "page": "https://www.triviantes.com/que-hacer-en-bogota/",
+      "index": "https://www.triviantes.com/que-hacer-en-bogota/",
+      "map": ""
+    },
+    {
+      "name": "valle",
+      "page": "MayJenn - Unsplash",
+      "index": "",
+      "map": ""
+    }    
+  ]
+}

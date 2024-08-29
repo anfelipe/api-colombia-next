@@ -35,7 +35,7 @@ export const getAllWithImages = async () : Promise<Department[]> => {
 
     const departments = data.map((collection: any) => {
       let image = images.find(imageItem => replaceAccents(collection.name.toLowerCase()) === imageItem.name.toLowerCase());
-
+      
       return {
         id: collection.id,
         name: collection.name,
