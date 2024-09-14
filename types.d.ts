@@ -57,7 +57,7 @@ type Authors = {
 
 type ImageAuthor = {
   name: string,
-  page: string,
+  authorName: string,
   index: string,
   map: string
 }

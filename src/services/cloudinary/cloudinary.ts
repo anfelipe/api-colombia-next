@@ -15,7 +15,7 @@ function TransformToImageType(data:any) : ImageType {
     id: data.asset_id,
     name: capitalizeFirstLetter(name),
     url: data.secure_url,
-    alt: "Creditos pendientes de autor"
+    alt: getImageAuthor(name)
   } as ImageType;
 }
 
@@ -31,11 +31,13 @@ function shuffle<T>(array: T[]): T[] {
   return shuffledArray;
 }
 
-function getImageAuthor(name: string, category:ImageCategory){
+function getImageAuthor(name: string) : string {
   const authors = authorImages as Authors;
-
-  console.log(authors);
+  console.log(name);
   
+  const authorName = authors.departments.find(a => a.name === name)?.authorName;
+  
+  return authorName ?? "";
 }
 
 export const getDepartmentImage = async (name: string) : Promise<ImageType> => {
@@ -90,7 +92,9 @@ export const getShuffleImages = async () : Promise<ImageType[]> => {
       return [] as ImageType[];
     }
 
-    const imagesList = response as ImageType[];
+    const imagesList = response.filter((image:any) => image.folder.split('/').length == 3) as ImageType[];
+
+    console.log(imagesList);
 
     const transformedImages = imagesList.map((collection: any) => {      
       return TransformToImageType(collection);
