@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { useRouter } from "next/navigation";
+// import { useRouter } from "next/navigation";
 
 import { MdLocationPin } from 'react-icons/md';
 import { FaLandmark, FaCity } from "react-icons/fa";
@@ -15,10 +15,10 @@ interface DepartmentCardProps {
 
 export const DepartmentCard = ({department} : DepartmentCardProps) =>{
 
-  const router = useRouter();
+  // const router = useRouter();
 
   const handleClickExplore = (id:number) => {
-    router.push(`/department/${id}`);
+    // router.push(`/department/${id}`);
   }
 
   return(
